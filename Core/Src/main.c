@@ -112,7 +112,6 @@ int main(void)
   HAL_TIM_Base_Start(&htim1);
   HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
   HAL_TIMEx_PWMN_Start(&htim1, TIM_CHANNEL_1);
-  
  HAL_TIM_Base_Start_IT(&htim2);
  HAL_ADC_ConvCpltCallback(&hadc1);
  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&aADCxConvertedData, 4);
@@ -135,9 +134,9 @@ int main(void)
    Vsum2 = Vsum2 * 3.3 / 4095.0;
    Isum2 = (Vsum2 - 2.36) / 0.33; /*Isum2*/ //	0.33
 
-   //				WANT=Isum*10.9256 ;		/*Ŀ���������*/
+   //				WANT=Isum*10.9256 ;		/*Ŀ���������?*/
    Vall = First_order_lag_filtering2(0.01, aADCxConvertedData[1]); /*V*/
-   Vall = (Vall * 3.3 / 4095.0) * 19.71;                           //	DCDC��ʱ���25.36//20.24
+   Vall = (Vall * 3.3 / 4095.0) * 19.71;                           //	DCDC��ʱ���?25.36//20.24
 
    I_NOW = Isum2 + Isum;
 
