@@ -1,0 +1,21 @@
+{
+    "files.associations": {
+        "pid.h": "c",
+        "filter.h": "c",
+        "spwm.h": "c",
+        "tim.h": "c",
+        "stm32l4xx_hal_def.h": "c",
+        "main.h": "c",
+        "usart.h": "c",
+        "stdio.h": "c",
+        "gui.h": "c",
+        "stdarg.h": "c",
+        "My_Usart.C": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Disabled",
+    "KeilAssistant.Project.ExcludeList": [
+    
+        "template.uvproj",
+        "template.uvprojx"
+    ]
+}

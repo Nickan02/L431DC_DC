@@ -1,0 +1,89 @@
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+#include "math.h"
+#include "spwm.h"
+
+extern TIM_HandleTypeDef htim1;
+
+float n1_Temp,n2_Temp;
+
+float SinWave_Tab[N];
+/*************************************************
+函数名称: n1_RET
+函数功能: 计算系数
+传入参数: Sin_FRQ
+返回参数: SPWM的系数，配合SinWave_Tab得到占空宽度
+**************************************************/
+float n1_RET(float Sin_FRQ)
+{
+	static float temp;
+	temp = Time_CLK;
+	temp = temp/Sin_FRQ;
+	temp = temp/N;
+	temp = temp/4;
+	return temp;			// Tc/4
+}
+// Tm = 1/Sin_FRQ;
+// Tc = Tm/N;
+// Tc = 1/Sin_FRQ*N;
+
+// Tcy = 1/Time_CLK;		// 时钟计数周期
+
+// Tc->Num = Tc/Tcy = Tc*Time_CLK = Time_CLK/(sin_FRQ*N);
+/*************************************************
+函数名称: n2_RET
+函数功能: 生成系数
+传入参数: M：调制比，AN_RET：系数
+返回参数: AN_RET*M
+**************************************************/
+float n2_RET(float M,float AN_RET)
+{
+	static float temp;
+	temp = AN_RET;
+	temp *= M;				// Tc*a/4
+	return temp;
+}
+//以上函数实际为公式的拆分
+/*************************************************
+函数名称: SinWave
+函数功能: 生成SPWM的正弦表，点数为N
+传入参数: 无
+返回参数: 无
+**************************************************/
+void SinWave()
+{
+	uint16_t i;
+	for(i = 0; i < N; i++)
+	{
+		// mark[k] = (unsigned int)(Fs / Fc * (0.25 - a / 4 * sin(doublepi / N * (k + 0.75))));  
+		SinWave_Tab[i] = (float)(sin(doublepi / N * (i+0.75) )); 		// 正弦表
+	}
+}
+/************************************************************************************************************/
+//高级定时器1初始化
+//参数：TGA_FREQ 类型：unsigned short 两位小数 目标正弦波频率，取值范围：20~1000HZ
+/************************************************************************************************************/
+uint16_t TIM1_Per_Set(float Sin_FRQ)
+{
+	static float temp;
+	temp = Time_CLK;			// 定时器时钟	Tcy = 1/Time_CLK；Tm = 1/Sin_FRQ； Tc=Tm/Tcy;
+	temp /= Sin_FRQ;			// 频率为Sin_FRQ的正弦波，记满一个周期所用的计数值
+	temp /= N;					// 载波一个周期所对应的计数值，Tc对应的数字量
+	temp /= 2;					// 加减模式下的周期计数值
+	return (uint16_t)temp;
+}
+
+void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
+{
+	static uint16_t i = 0;
+	uint16_t temp;
+	if(htim==&htim1)
+	{
+		//HAL_GPIO_TogglePin(GPIOF,GPIO_PIN_9);
+		temp = (uint16_t)(n1_Temp - n2_Temp*SinWave_Tab[i++]);	//写入比较通道1的预装载寄存器
+		__HAL_TIM_SET_COMPARE(&htim1,TIM_CHANNEL_1,temp);
+//		TIM1->CCR1 = temp;
+		if(i==N)
+			i = 0;
+	}
+}

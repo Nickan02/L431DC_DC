@@ -1,0 +1,87 @@
+[info] Log at : 2022/7/6|14:57:08|GMT+0800
+
+[info] project closed: L431DC_DC
+[info] Log at : 2022/7/6|15:04:33|GMT+0800
+
+[info] project closed: L431DC_DC
+[info] Log at : 2022/7/6|15:07:44|GMT+0800
+
+[info] Log at : 2022/7/6|15:28:18|GMT+0800
+
+[info] Log at : 2022/7/6|15:28:35|GMT+0800
+
+[info] Log at : 2022/7/6|15:40:42|GMT+0800
+
+[info] Log at : 2022/7/6|15:51:05|GMT+0800
+
+[info] Log at : 2022/7/6|15:54:23|GMT+0800
+
+[SyntaxError: Unexpected token / in JSON at position 880
+	at JSON.parse (<anonymous>)
+	at F.updateCppProperties (c:\Users\莒南哥哥\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:10911)
+	at F.<anonymous> (c:\Users\莒南哥哥\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:12641)
+	at Generator.next (<anonymous>)
+	at c:\Users\莒南哥哥\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:4542
+	at new Promise (<anonymous>)
+	at r (c:\Users\莒南哥哥\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:4287)
+	at F.load (c:\Users\莒南哥哥\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:11372)
+	at w.<anonymous> (c:\Users\莒南哥哥\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:8799)
+	at Generator.next (<anonymous>)
+	at a (c:\Users\莒南哥哥\.vscode\extensions\cl.keil-assistant-1.7.0\dist\extension.js:1:4344)
+	at runMicrotasks (<anonymous>)
+	at processTicksAndRejections (node:internal/process/task_queues:96:5)]
+[info] Log at : 2022/7/7|14:45:22|GMT+0800
+
+[info] Log at : 2022/7/7|16:56:34|GMT+0800
+
+[info] Log at : 2022/7/7|17:26:31|GMT+0800
+
+[info] Log at : 2022/7/7|17:32:33|GMT+0800
+
+[info] Log at : 2022/7/7|18:29:24|GMT+0800
+
+[info] Log at : 2022/7/7|18:42:10|GMT+0800
+
+[info] Log at : 2022/7/7|18:44:23|GMT+0800
+
+[info] Log at : 2022/7/8|10:40:17|GMT+0800
+
+[info] Log at : 2022/7/9|18:34:30|GMT+0800
+
+[info] Log at : 2022/7/11|14:35:36|GMT+0800
+
+[info] Log at : 2022/7/11|14:41:07|GMT+0800
+
+[info] Log at : 2022/7/11|14:41:21|GMT+0800
+
+[info] Log at : 2022/7/11|14:41:59|GMT+0800
+
+[info] Log at : 2022/7/11|14:49:27|GMT+0800
+
+[info] Log at : 2022/7/11|14:53:44|GMT+0800
+
+[info] Log at : 2022/7/11|18:49:02|GMT+0800
+
+[info] Log at : 2022/7/11|18:54:02|GMT+0800
+
+[info] Log at : 2022/7/11|18:56:38|GMT+0800
+
+[info] Log at : 2022/7/11|19:11:07|GMT+0800
+
+[info] Log at : 2022/7/11|19:15:42|GMT+0800
+
+[info] Log at : 2022/7/11|19:20:35|GMT+0800
+
+Log at : 2022/7/11|19:27:11|GMT+0800
+
+Log at : 2022/7/12|14:22:34|GMT+0800
+
+Log at : 2022/7/12|15:43:52|GMT+0800
+
+[Project Close]: L431DC_DC
+Log at : 2022/7/13|09:18:03|GMT+0800
+
+[Project Close]: L431DC_DC
+Log at : 2022/7/13|16:11:23|GMT+0800
+
+[Project Close]: L431DC_DC
